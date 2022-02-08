@@ -1,0 +1,22 @@
+{
+  "template": "https://Singon@bitbucket.org/Singon/school-lab-template.git",
+  "commit": "d4913be64d6bc3b38834769a5d97ccc3f4938f72",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "project_name": "Diagnostické metody I",
+      "project_slug": "Diagmet-I",
+      "header_title": "Diagnostické metody I",
+      "header_author": "Jan Slaný",
+      "header_fieldofstudy": "F",
+      "header_time": "Út 10:00",
+      "header_schoolyear": "IV",
+      "header_schoolterm": "I",
+      "_copy_without_render": [
+        "protokol.cls"
+      ],
+      "_template": "https://Singon@bitbucket.org/Singon/school-lab-template.git"
+    }
+  },
+  "directory": null
+}
