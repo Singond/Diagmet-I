@@ -18,6 +18,7 @@
 ## OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 ## SOFTWARE.
 
+# Physical constants
 global c = 299792458;     # Speed of light in vacuum [m/s]
 global h = 6.626070e-34;  # Planck constant [J*s]
 global k = 1.380649e-23;  # Boltzmann constant [J/K]
@@ -32,6 +33,7 @@ B.omexe = 15.2*1e2;       # [m-1]
 B.B = 1.961*1e2;          # [m-1]
 B.ae = 0.026*1e2;         # [m-1]
 B.De = 7.1e-4;            # [m-1]
+B.Te = 86945.2e2;         # [m-1]
 
 # The lower state: A1Pi
 A.ome = 1518.2*1e2;       # [m-1]
@@ -39,6 +41,7 @@ A.omexe = 19.4*1e2;       # [m-1]
 A.B = 1.611*1e2;          # [m-1]
 A.ae = 0.023*1e2;         # [m-1]
 A.De = 7.33e-4;           # [m-1]
+A.Te = 65075.7e2;         # [m-1]
 
 v = (0:10)';              # Vibrational numbers
 R = 0:10;                 # Rotational numbers
@@ -83,8 +86,11 @@ Ev1 = A.Ev(v1+1);
 Er2 = B.Er(sub2ind(size(B.Er), v2+1, R2+1));
 Er1 = B.Er(sub2ind(size(B.Er), v1+1, R1+1));
 
+Ee2 = h*c*B.Te;
+Ee1 = h*c*A.Te;
+
 # Energy of transition
-E = Ev2 + Er2 - (Ev1 + Er1);
+E = Ee2 + Ev2 + Er2 - (Ee1 + Ev1 + Er1);
 
 # Franck-Condon factors
 franckcondon;
@@ -102,12 +108,12 @@ I = fc .* hl .* exp(-ec*Ev2 ./ (k*Tv)) .* exp(-ec*Er2 ./ (k*Tr));
 wl = h*c./E;    # Wavelength [m-1]
 valid = (!isna(I) & I > 0 & wl > 0);
 
-fwhm = 1e-3(ones(size(I)));
+fwhm = 1e-11(ones(size(I)));
 b = fwhm.^2 ./ (4*log(2));
 a = sqrt(pi) .* b ./ I;
 
-range = max(wl(valid)) - min(wl(valid));
-x = linspace(min(wl(valid))-range/10, max(wl(valid))+range/10, 10000);
+range = max(E(valid)) - min(E(valid));
+x = linspace(min(E(valid))-range/10, max(E(valid))+range/10, 100000);
 yy = arrayfun(@(p,a,b) (1/a)*exp(-((x-p)./b).^2),
-	wl(valid), a(valid), b(valid), "UniformOutput", false);
+	E(valid), a(valid), b(valid), "UniformOutput", false);
 y = sum(cell2mat(yy));
