@@ -31,7 +31,9 @@ global c = 299792458;     # Speed of light in vacuum [m/s]
 global h = 6.626070e-34;  # Planck constant [J*s]
 global k = 1.380649e-23;  # Boltzmann constant [J/K]
 global ec = 1.60218e-19;  # Elementary charge [C]
+global u = 1.661e-27;     # Atomic mass constant [kg]
 
+M = 28;
 Tv = 2000;                # Vibrational temperature [K]
 Tr = 300;                 # Rotational temperature [K]
 
@@ -115,6 +117,11 @@ I = fc .* hl .* exp(-ec*Ev2 ./ (k*Tv)) .* exp(-ec*Er2 ./ (k*Tr));
 
 wl = h*c./E;    # Wavelength [m-1]
 valid = (!isna(I) & I > 0 & wl > 0);
+
+## Doppler broadening
+Tkin = Tr;
+dwl_dop = sqrt(2*k*Tkin*log(2) / (M*u)) * 2 * wl ./ c;
+dE_dop = h^2*c^2./(dwl_dop .* E.^2);
 
 fwhm = 1e-11(ones(size(I)));
 b = fwhm.^2 ./ (4*log(2));
