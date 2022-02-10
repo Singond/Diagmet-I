@@ -121,7 +121,8 @@ b = fwhm.^2 ./ (4*log(2));
 a = sqrt(pi) .* b ./ I;
 
 range = max(E(valid)) - min(E(valid));
-x = linspace(min(E(valid))-range/10, max(E(valid))+range/10, 100000);
-yy = arrayfun(@(p,a,b) (1/a)*exp(-((x-p)./b).^2),
-	E(valid), a(valid), b(valid), "UniformOutput", false);
-y = sum(cell2mat(yy));
+x = linspace(min(E(valid))-range/10, max(E(valid))+range/10, 100000)';
+y = zeros(size(x));
+for i = 1:sum(valid)
+	y += (1/a(valid)(i))*exp(-((x-E(valid)(i))./b(valid)(i)).^2);
+endfor
