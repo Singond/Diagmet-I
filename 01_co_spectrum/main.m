@@ -18,6 +18,14 @@
 ## OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 ## SOFTWARE.
 
+## Model of the emission spectrum of carbon monoxide (CO) molecule
+## undergoing a transition between the following electronic states:
+##
+##     B1Sigma+ -> A1Pi
+##
+## The resulting x, y values are the energies in joules
+## and spectral intensity in arbitrary units.
+
 # Physical constants
 global c = 299792458;     # Speed of light in vacuum [m/s]
 global h = 6.626070e-34;  # Planck constant [J*s]
