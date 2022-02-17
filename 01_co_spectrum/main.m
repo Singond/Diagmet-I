@@ -94,7 +94,7 @@ dR = repmat(dR, nv, 1);
 Ev2 = B.Ev(v2+1);
 Ev1 = A.Ev(v1+1);
 Er2 = B.Er(sub2ind(size(B.Er), v2+1, R2+1));
-Er1 = B.Er(sub2ind(size(B.Er), v1+1, R1+1));
+Er1 = A.Er(sub2ind(size(A.Er), v1+1, R1+1));
 
 Ee2 = h*c*B.Te;
 Ee1 = h*c*A.Te;
