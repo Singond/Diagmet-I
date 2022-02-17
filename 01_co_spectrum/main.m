@@ -131,7 +131,7 @@ dE_inst = h * df_inst;
 dE = hypot(dE_inst, dE_dop);
 
 fwhm = dE(ones(size(I)));
-b = fwhm.^2 ./ (4*log(2));
+b = fwhm ./ (2*sqrt(log(2)));
 a = sqrt(pi) .* b ./ I;
 
 range = max(E(valid)) - min(E(valid));
