@@ -121,9 +121,16 @@ valid = (!isna(I) & I > 0 & wl > 0);
 ## Doppler broadening
 Tkin = Tr;
 dwl_dop = sqrt(2*k*Tkin*log(2) / (M*u)) * 2 * wl ./ c;
-dE_dop = h^2*c^2./(dwl_dop .* E.^2);
+dE_dop = dwl_dop .* E.^2./(h .* c);
 
-fwhm = 1e-11(ones(size(I)));
+# Instrument broadening
+df_inst = 50e9;                       # Instrument function [Hz]
+dE_inst = h * df_inst;
+
+## Total broadening
+dE = hypot(dE_inst, dE_dop);
+
+fwhm = dE(ones(size(I)));
 b = fwhm.^2 ./ (4*log(2));
 a = sqrt(pi) .* b ./ I;
 
