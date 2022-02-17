@@ -113,7 +113,7 @@ hl(dR==0)  = R2(dR==0)  + 0.5;        # Q branch
 hl(dR==1)  = (R2(dR==1)  - 1) ./ 2;   # R branch
 
 # Intensity of the transition
-I = fc .* hl .* exp(-ec*Ev2 ./ (k*Tv)) .* exp(-ec*Er2 ./ (k*Tr));
+I = fc .* hl .* exp(-Ev2 ./ (k*Tv)) .* exp(-Er2 ./ (k*Tr));
 
 wl = h*c./E;    # Wavelength [m-1]
 valid = (!isna(I) & I > 0 & wl > 0);
