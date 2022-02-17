@@ -54,7 +54,7 @@ A.De = 7.33e-4;           # [m-1]
 A.Te = 65075.7e2;         # [m-1]
 
 v = (0:10)';              # Vibrational numbers
-R = 0:10;                 # Rotational numbers
+R = 0:30;                 # Rotational numbers
 
 function s = generate_levels(s, v, R)
 	global c
