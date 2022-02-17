@@ -130,6 +130,9 @@ a = sqrt(pi) .* b ./ I;
 range = max(E(valid)) - min(E(valid));
 x = linspace(min(E(valid))-range/10, max(E(valid))+range/10, 100000)';
 y = zeros(size(x));
+aa = a(valid);
+bb = b(valid);
+EE = E(valid);
 for i = 1:sum(valid)
-	y += (1/a(valid)(i))*exp(-((x-E(valid)(i))./b(valid)(i)).^2);
+	y += (1/aa(i)) * exp(-((x-EE(i)) ./ bb(i)).^2);
 endfor
