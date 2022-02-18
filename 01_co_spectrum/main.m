@@ -108,9 +108,9 @@ fc = FC(sub2ind(size(FC), v2+1, v1+1));
 
 # Hoenl-London factors
 hl = zeros(size(dR));
-hl(dR==-1) = (R2(dR==-1) + 2) ./ 2;   # P branch
-hl(dR==0)  = R2(dR==0)  + 0.5;        # Q branch
-hl(dR==1)  = (R2(dR==1)  - 1) ./ 2;   # R branch
+hl(dR==1)  = (R2(dR==1)  + 2) ./ 2;   # P branch
+hl(dR==0)  = R2(dR==0)   + 0.5;       # Q branch
+hl(dR==-1) = (R2(dR==-1) - 1) ./ 2;   # R branch
 
 # Intensity of the transition
 I = fc .* hl .* exp(-Ev2 ./ (k*Tv)) .* exp(-Er2 ./ (k*Tr));
