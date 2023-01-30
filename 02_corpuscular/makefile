@@ -13,14 +13,17 @@ endif
 .PHONY: all
 all: protokol.pdf
 
-epsfigs = $(patsubst, %,unknown-%,1 2 3 4)
+epsfigs = $(patsubst %,unknown-%,1 2 3 4)
 figs = ${epsfigs:%=plots/%.tex} ${epsfigs:%=plots/%.eps}
 tex_resources = build/plots ${figs}
 
 build/plots:
 	mkdir -p build/plots
 
-plots/unknown-%: identification.m identification_export.m
+plots:
+	mkdir -p plots
+
+plots/unknown-%: identification.m identification_export.m plots
 	octave --norc identification_export.m
 
 .PHONY: tex_resources
