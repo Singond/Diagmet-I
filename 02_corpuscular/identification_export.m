@@ -6,8 +6,7 @@ endif
 
 for k = 1:numel(X)
 	x = X(k);
-	int = zeros(size(x.int));
-	int(x.int > 0) = log10(x.int(x.int > 0));
+	int = max(real(log10(x.int)), 1);
 	gp = gnuplotter;
 	gp.load("../plotsettings.gp");
 	gp.plot(x.m, int, "w l");
@@ -18,3 +17,33 @@ for k = 1:numel(X)
 	gp.export(sprintf("plots/unknown-%d.tex", k), "epslatex", "size 16cm,6cm");
 endfor
 
+gp = gnuplotter("logfile", "gnuplotter.log");
+gp.load("../plotsettings.gp");
+for k = numel(X):-1:1
+	x = X(k);
+	int = max(x.int, 1);
+	gp.plot(x.m, int, sprintf("w filledcurves t '\\SI{%d}{\\electronvolt}'", x.E));
+	gp.exec("\n\
+		set decimalsign '.' \n\
+		set lmargin 2 \n\
+		set rmargin 1 \n\
+		set xrange [10:60] \n\
+		set log y \n\
+		set format y '\\num[print-unity-mantissa=false]{%.0e}' \n\
+		set yrange [1000:1e6] \n\
+		set key top left height 1 width 1 \n\
+	");
+endfor
+xpos = X(1).pkm;
+xpos(26) -= 0.1;
+xpos(27) -= 0.1;
+xpos(29) += 0.2;
+xpos(57) += 0.2;
+ypos = pkintmax;
+ypos(42) *= 1.5;
+for p = [18 26 27 28 29 30 32 39 41 42 52 54 56 57];
+	gp.exec(sprintf(
+		"set label '%d' at %f,%f center offset 0,1",
+		p, xpos(p), ypos(p)));
+endfor
+gp.export(sprintf("plots/unknown-all.tex", k), "epslatex", "size 16cm,8cm");
