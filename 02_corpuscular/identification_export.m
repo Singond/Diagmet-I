@@ -17,7 +17,7 @@ for k = 1:numel(X)
 	gp.export(sprintf("plots/unknown-%d.tex", k), "epslatex", "size 16cm,6cm");
 endfor
 
-gp = gnuplotter("logfile", "gnuplotter.log");
+gp = gnuplotter();
 gp.load("../plotsettings.gp");
 for k = numel(X):-1:1
 	x = X(k);
@@ -28,6 +28,7 @@ for k = numel(X):-1:1
 		set lmargin 2 \n\
 		set rmargin 1 \n\
 		set xrange [10:60] \n\
+		set xlabel '$\\mz\\,[\\si{\\thomson}]$' \n\
 		set log y \n\
 		set format y '\\num[print-unity-mantissa=false]{%.0e}' \n\
 		set yrange [1000:1e6] \n\
