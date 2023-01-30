@@ -29,6 +29,7 @@
 	range-phrase         = \text{ až },
 	range-units          = single,
 }
+\DeclareSIUnit\thomson{Th}
 \usepackage{amsmath}
 
 % Obvody
@@ -58,6 +59,8 @@
 \teplota={}% [C]
 \vlhkost={}% [%]
 
+\newcommand\mz{m/z}
+
 \begin{document}
 \header
 
@@ -68,6 +71,13 @@
 	\input{plots/unknown-all}
 	\caption{Hmotnostní spektrum neznámého plynu při různých energiích.}
 	\label{fig:unknown-all}
+\end{figure}
+
+\begin{figure}[htp]
+	\centering
+	\input{plots/cyclopropylamine-nist}
+	\caption{Hmotnostní spektrum cyklopropylaminu podle NIST.}
+	\label{fig:cyclopropylamine-nist}
 \end{figure}
 
 \end{document}

@@ -26,6 +26,9 @@ plots:
 plots/unknown-%: identification.m identification_export.m plots
 	octave --norc identification_export.m
 
+$(patsubst %,plots/cyclopropylamine-nist.%,tex eps): nist_export.m plots
+	octave --norc nist_export.m
+
 .PHONY: tex_resources
 tex_resources: makefile ${tex_resources}
 	@echo Successfully updated prerequisities for protokol.tex
