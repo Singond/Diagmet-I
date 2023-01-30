@@ -44,6 +44,12 @@
 \usepackage{epstopdf}
 \epstopdfsetup{outdir=./build/plots/}
 
+\usepackage[hidelinks,pdfusetitle]{hyperref}
+
+\usepackage[style=iso-numeric, autocite=superscript, backend=biber,
+	sorting=none, sortlocale=cs_CZ]{biblatex}
+\addbibresource{references.bib}
+
 \jmenopraktika={Diagnostické metody I}  % jmeno predmetu
 \jmeno={Jan Slaný}                             % jmeno mericiho
 \obor={F}                               % zkratka studovaneho oboru
@@ -76,7 +82,7 @@
 \begin{figure}[htp]
 	\centering
 	\input{plots/cyclopropylamine-nist}
-	\caption{Hmotnostní spektrum cyklopropylaminu podle NIST.}
+	\caption{Hmotnostní spektrum cyklopropylaminu podle \cite{nist}.}
 	\label{fig:cyclopropylamine-nist}
 \end{figure}
 
