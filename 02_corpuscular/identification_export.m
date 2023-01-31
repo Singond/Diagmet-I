@@ -6,10 +6,10 @@ endif
 
 for k = 1:numel(X)
 	x = X(k);
-	int = max(real(log10(x.int)), 1);
+	int = max(real(log10(x.in)), 1);
 	gp = gnuplotter;
 	gp.load("../plotsettings.gp");
-	gp.plot(x.m, int, "w l");
+	gp.plot(x.mz, int, "w l");
 	gp.exec("\n\
 		set yrange [3:6] \n\
 		unset key \n\
@@ -21,8 +21,9 @@ gp = gnuplotter();
 gp.load("../plotsettings.gp");
 for k = numel(X):-1:1
 	x = X(k);
-	int = max(x.int, 1);
-	gp.plot(x.m, int, sprintf("w filledcurves t '\\SI{%d}{\\electronvolt}'", x.E));
+	int = max(x.in, 1);
+	gp.plot(x.mz, int, sprintf(
+		"w filledcurves t '\\SI{%d}{\\electronvolt}'", x.E));
 	gp.exec("\n\
 		set decimalsign '.' \n\
 		set lmargin 2 \n\
@@ -35,7 +36,7 @@ for k = numel(X):-1:1
 		set key top left height 1 width 1 \n\
 	");
 endfor
-xpos = X(1).pkm;
+xpos = X(1).s.mz;
 xpos(26) -= 0.1;
 xpos(27) -= 0.1;
 xpos(29) += 0.2;

@@ -1,16 +1,7 @@
 addpath octave;
 
-function d = load_data(d)
-	data = read_eqp_csv(d.filename);
-	d.m = data(:,1);
-	d.int = data(:,2);
-endfunction
-
 function x = spectrum(x)
-	x.pkm = (1:ceil(max(x.m)))';
-	[~, idx] = histc(x.m, [x.pkm - 0.5; x.pkm(end) + 0.5]);
-	x.pkint = accumarray(idx, x.int, [], @mean);
-	x.pkintmax = accumarray(idx, x.int, [], @max);
+	x.s = mass_spectrum(x.mz, x.in);
 endfunction
 
 X = struct;
@@ -29,4 +20,4 @@ X(4).E = 70;
 X = arrayfun(@load_data, X);
 X = arrayfun(@spectrum, X);
 
-pkintmax = max([X.pkintmax], [], 2);
+pkintmax = max([[X.s].inmax], [], 2);
