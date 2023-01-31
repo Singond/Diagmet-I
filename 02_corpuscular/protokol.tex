@@ -30,6 +30,7 @@
 	range-units          = single,
 }
 \DeclareSIUnit\thomson{Th}
+\DeclareSIUnit\amu{u}
 \usepackage{amsmath}
 
 % Obvody
@@ -43,6 +44,9 @@
 }
 \usepackage{epstopdf}
 \epstopdfsetup{outdir=./build/plots/}
+
+\usepackage{mhchem}
+\usepackage{chemfig}
 
 \usepackage[hidelinks,pdfusetitle]{hyperref}
 
@@ -70,7 +74,29 @@
 \begin{document}
 \header
 
-\section{Určení neznámého plynu}
+\section{Určení neznámé látky}
+\label{sec:unknown}
+Posledním úkolem je určit neznámou kapalnou látku z~hmotnostního spektra
+jejích výparů.
+O~kapalině je známo, že obsahuje uhlík, vodík a kyslík.
+
+Hmotnostní spektrum bylo změřeno pro čtyři energie inoizačních elektronů:
+\SIlist[list-separator={, }]{70;40;25;15}{\electronvolt}.
+Tato spektra s~vyznačenými maximy jsou na obrázku č.~\ref{fig:unknown-all}.
+Nejvyšší detekovaná hodnota $\mz$ je rovna \SI{57}{\thomson},
+pročež je možno usoudit, že nominální hmotnost neznámé molekuly
+je $\SI{57}{\amu}$.
+V~databázi NIST~\parencite{nist} byly vyhledány sloučeniny s~touto hmotností.
+Při porovnání zde uvedených hmotnostních spekter s~naměřenými vyšlo najevo,
+že neznámou látkou je pravděpodobně cyklopropylamin:
+\begin{center}
+	\chemfig{H_2N-*3(---)}
+\end{center}
+
+Na obrázku č.~\ref{fig:cyclopropylamine-nist} je referenční spektrum
+z~databáze NIST \parencite{nist}.
+Pravděpodobné přiřazení částic k~jednotlivým maximům je
+v~tabulce č.~\ref{tab:unknown}.
 
 \begin{figure}[htp]
 	\centering
@@ -85,5 +111,38 @@
 	\caption{Hmotnostní spektrum cyklopropylaminu podle \cite{nist}.}
 	\label{fig:cyclopropylamine-nist}
 \end{figure}
+
+\begin{table}
+	\centering
+	\caption{Určené částice}
+	\label{tab:unknown}
+	\begin{tabular}{ccc}
+		\toprule
+		$\mz\,[\si{\thomson}]$ & částice \\
+		\midrule
+		18 & \ce{H2O}\,? \\
+		26 & \ce{CN} \\
+		27 & \ce{CHN} \\
+		28 & \ce{C2H4} \\
+		29 & \ce{CH3N} \\
+		30 & \ce{CH4N} \\
+		32 & \ce{O2}? \\
+		\bottomrule
+	\end{tabular}
+	\qquad
+	\begin{tabular}{ccc}
+		\toprule
+		$\mz\,[\si{\thomson}]$ & částice \\
+		\midrule
+		39 & \ce{C2HN} \\
+		41 & \ce{C3H5} \\
+		42 & \ce{C3H6} \\
+		52 & \ce{C3H2N} \\
+		54 & \ce{C3H4N} \\
+		56 & \ce{C3H6N} \\
+		57 & \ce{C3H7N} \\
+		\bottomrule
+	\end{tabular}
+\end{table}
 
 \end{document}
