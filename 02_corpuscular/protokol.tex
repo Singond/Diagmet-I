@@ -74,7 +74,61 @@
 \begin{document}
 \header
 
-\section{Určení neznámé látky}
+\section{Experimenty}
+\label{sec:experimental}
+
+\subsection{Hmotnostní spektrum zbytkové atmosféry}
+\label{sec:residual}
+Na úvod experimentální části bylo změřeno hmotnostní spektrum
+zbytkové atmosféry v~aparatuře.
+Energie ionizačních elektronů byla nastavena na \SI{70}{\electronvolt}.
+Jelikož se reaktor bežně používá k~depozici blíže neurčené sloučeniny,
+lze ve~spektru očekávat kromě složek vzduchu také její malé množství.
+Povaha této látky bude určena v~kapitole \ref{sec:unknown}.
+
+Naměřené spektrum je na obrázku č.~\ref{fig:residual},
+určení jednotlivých částic je v~tabulce č.~\ref{tab:residual}.
+Je dobře patrna přítomnost vodní páry, dusíku a kyslíku.
+V~menším množství se vyskytuje též argon, oxid uhličitý
+a~neznámá částice s~nominální hmotností $\mz = \SI{56}{\thomson}$.
+
+\begin{figure}[htp]
+	\centering
+	\input{plots/residual}
+	\caption{Hmotnostní spektrum zbytkové atmosféry.}
+	\label{fig:residual}
+\end{figure}
+
+\begin{table}
+	\centering
+	\caption{Hlavní složky zbytkové atmosféry.}
+	\label{tab:residual}
+	\begin{tabular}{ccc}
+		\toprule
+		$\mz\,[\si{\thomson}]$ & částice \\
+		\midrule
+		14 & \ce{N+} \\
+		15 & \ce{NH+} \\
+		16 & \ce{O+} \\
+		17 & \ce{OH+} \\
+		18 & \ce{H2O+} \\
+		\bottomrule
+	\end{tabular}
+	\qquad
+	\begin{tabular}{ccc}
+		\toprule
+		$\mz\,[\si{\thomson}]$ & částice \\
+		\midrule
+		28 & \ce{N2+} \\
+		32 & \ce{O2+} \\
+		40 & \ce{Ar+} \\
+		44 & \ce{CO2+} \\
+		56 & \ce{C3H6N} \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\subsection{Určení neznámé látky}
 \label{sec:unknown}
 Posledním úkolem je určit neznámou kapalnou látku z~hmotnostního spektra
 jejích výparů.

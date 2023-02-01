@@ -13,7 +13,8 @@ endif
 .PHONY: all
 all: protokol.pdf
 
-epsfigs = $(patsubst %,unknown-%,1 2 3 4)
+#epsfigs = $(patsubst %,unknown-%,1 2 3 4)
+epsfigs = unknown-all residual
 figs = ${epsfigs:%=plots/%.tex} ${epsfigs:%=plots/%.eps}
 tex_resources = build/plots ${figs}
 
@@ -25,6 +26,9 @@ plots:
 
 plots/unknown-%: identification.m identification_export.m plots
 	octave --norc identification_export.m
+
+plots/residual%: residual.m residual_export.m plots
+	octave --norc residual_export.m
 
 $(patsubst %,plots/cyclopropylamine-nist.%,tex eps): nist_export.m plots
 	octave --norc nist_export.m
