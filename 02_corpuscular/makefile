@@ -14,7 +14,7 @@ endif
 all: protokol.pdf
 
 #epsfigs = $(patsubst %,unknown-%,1 2 3 4)
-epsfigs = unknown-all residual
+epsfigs = residual argon unknown-all
 figs = ${epsfigs:%=plots/%.tex} ${epsfigs:%=plots/%.eps}
 tex_resources = build/plots ${figs}
 
@@ -29,6 +29,9 @@ plots/unknown-%: identification.m identification_export.m plots
 
 plots/residual%: residual.m residual_export.m plots
 	octave --norc residual_export.m
+
+plots/argon%: argon.m argon_export.m plots
+	octave --norc argon_export.m
 
 $(patsubst %,plots/cyclopropylamine-nist.%,tex eps): nist_export.m plots
 	octave --norc nist_export.m

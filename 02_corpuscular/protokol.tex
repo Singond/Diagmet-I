@@ -31,6 +31,7 @@
 }
 \DeclareSIUnit\thomson{Th}
 \DeclareSIUnit\amu{u}
+\DeclareSIUnit\sccm{sccm}
 \usepackage{amsmath}
 
 % Obvody
@@ -124,6 +125,45 @@ a~neznámá částice s~nominální hmotností $\mz = \SI{56}{\thomson}$.
 		40 & \ce{Ar+} \\
 		44 & \ce{CO2+} \\
 		56 & \ce{C3H6N} \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\subsection{Hmotnostní spektrum argonu}
+\label{sec:argon}
+Dále bylo určeno hmotnostní spektrum argonu.
+Do reaktoru byl pouštěn argon v~množství \SI{10}{\sccm},
+tlak byl přitom nastaven na \SI{6}{\pascal}.
+Energie ionizačních elektronů činila stále \SI{70}{\electronvolt}.
+Tlak v~analyzátoru byl udržován na \SI{2.4e-4}{\pascal}.
+
+Výsledky měření jsou na obrázku č.~\ref{fig:argon}
+a v~tabulce č.~\ref{tab:argon}.
+Podle očekávání má nejvýraznější maximum argon o~$\mz = \SI{40}{\thomson}$,
+kromě něj však lze pozorovat další částice.
+Na hodnotě $\mz = \SI{36}{\thomson}$ je pravděpodobně zachycen \ce{^{36}Ar+}\!,
+jeden ze vzácnějších stabilních izotopů argonu.
+
+\begin{figure}[htp]
+	\centering
+	\input{plots/argon}
+	\caption{Hmotnostní spektrum argonu.}
+	\label{fig:argon}
+\end{figure}
+
+\begin{table}
+	\centering
+	\caption{Složky naměřeného spektra argonu.}
+	\label{tab:argon}
+	\begin{tabular}{ccc}
+		\toprule
+		$\mz\,[\si{\thomson}]$ & částice \\
+		\midrule
+		20 & \ce{^{40}Ar2+} \\
+		28 & \ce{N2+} \\
+		32 & \ce{O2+} \\
+		36 & \ce{^{36}Ar+} \\
+		40 & \ce{^{40}Ar+} \\
 		\bottomrule
 	\end{tabular}
 \end{table}
