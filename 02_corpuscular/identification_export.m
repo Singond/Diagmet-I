@@ -19,22 +19,22 @@ endfor
 
 gp = gnuplotter();
 gp.load("../plotsettings.gp");
+gp.exec("\n\
+	set decimalsign '.' \n\
+	set lmargin 2 \n\
+	set rmargin 1 \n\
+	set xrange [10:60] \n\
+	set xlabel '$\\mz\\,[\\si{\\thomson}]$' \n\
+	set log y \n\
+	set format y '\\num[print-unity-mantissa=false]{%.0e}' \n\
+	set yrange [1000:1e6] \n\
+	set key top left height 1 width 1 \n\
+");
 for k = numel(X):-1:1
 	x = X(k);
 	int = max(x.in, 1);
 	gp.plot(x.mz, int, sprintf(
 		"w filledcurves t '\\SI{%d}{\\electronvolt}'", x.E));
-	gp.exec("\n\
-		set decimalsign '.' \n\
-		set lmargin 2 \n\
-		set rmargin 1 \n\
-		set xrange [10:60] \n\
-		set xlabel '$\\mz\\,[\\si{\\thomson}]$' \n\
-		set log y \n\
-		set format y '\\num[print-unity-mantissa=false]{%.0e}' \n\
-		set yrange [1000:1e6] \n\
-		set key top left height 1 width 1 \n\
-	");
 endfor
 xpos = X(1).s.mz;
 xpos(26) -= 0.1;
