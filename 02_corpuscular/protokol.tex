@@ -71,6 +71,7 @@
 \vlhkost={}% [%]
 
 \newcommand\mz{m/z}
+\newcommand\en{E}
 
 \begin{document}
 \header
@@ -167,6 +168,37 @@ jeden ze vzácnějších stabilních izotopů argonu.
 		\bottomrule
 	\end{tabular}
 \end{table}
+
+\subsection{Ionizační práh argonu}
+V~této části byla pozorována závislost počtu částic s~určitým $\mz$
+zachycených hmotnostním filtrem na energii ionizačních elektronů.
+Hmotnostní analyzátor byl tedy nastaven na pevnou hodnotu $\mz$
+a~energie ionizačních elektronů byla měněna v~rozsahu
+\SIrange{6}{10}{\electronvolt}.
+Podmínky v~komoře byly stejné jako v~předchozím případě,
+tedy argon o~tlaku \SI{6}{\pascal} při průtoku \SI{10}{\sccm}.
+
+Pokus byl opakován pro dvě hodnoty $\mz$:
+pro \SI{40}{\thomson}, což odpovídá iontu \ce{Ar+},
+a~pro \SI{20}{\thomson}, tedy iont \ce{Ar^2+}.
+Náběhová část změřených průběhů byla poté aproximována polynomem
+druhého stupně a~jeho průsečík s~osou $x$ byl prohlášen za~ionizační
+energii.
+
+Výsledky jsou na obrázku č.~\ref{fig:ionization}.
+Ionizační energie \ce{Ar+} se pohybuje kolem \SI{16.26}{\electronvolt},
+u~iontu \ce{Ar^2+} je podle očekávání vyšší, asi \SI{45.65}{\electronvolt}.
+Je také nutno poukázat na skutečnost, že intenzita signálu pro \ce{Ar^2+}
+je o~řád nižší než pro jedenkrát ionizovaný argon,
+což svědčí o~nižší koncentraci vyšších iontů.
+
+\begin{figure}[htp]
+	\centering
+	\input{plots/ionization-1}%
+	\input{plots/ionization-2}
+	\caption{Určení ionizačního prahu argonových iontů \ce{Ar+} a~\ce{Ar^2+}.}
+	\label{fig:ionization}
+\end{figure}
 
 \subsection{Určení neznámé látky}
 \label{sec:unknown}
