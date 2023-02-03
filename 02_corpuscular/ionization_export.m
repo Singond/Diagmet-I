@@ -1,6 +1,6 @@
 pkg load report;
 
-argon;
+ionization;
 
 gp = gnuplotter();
 gp.load("plotsettings.gp");
@@ -14,7 +14,6 @@ gp.exec("\n\
 	set key top left \n\
 	set title '\\ce{Ar+}' \n\
 ");
-in = max(in, 1);
 gp.plot(ar1.E,    ar1.in,    "w l ls 1      t 'data'");
 gp.plot(ar1.fitE, ar1.fitin, "w l ls 2 dt 2 t 'fit'");
 gp.exec(sprintf("\n\
@@ -36,7 +35,6 @@ gp.exec("\n\
 	set key top left \n\
 	set title '\\ce{Ar^2+}' \n\
 ");
-in = max(in, 1);
 gp.plot(ar2.E,    ar2.in,    "w l ls 1      t 'data'");
 gp.plot(ar2.fitE, ar2.fitin, "w l ls 2 dt 2 t 'fit'");
 gp.exec(sprintf("\n\
