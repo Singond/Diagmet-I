@@ -170,6 +170,7 @@ jeden ze vzácnějších stabilních izotopů argonu.
 \end{table}
 
 \subsection{Ionizační práh argonu}
+\label{ionization}
 V~této části byla pozorována závislost počtu částic s~určitým $\mz$
 zachycených hmotnostním filtrem na energii ionizačních elektronů.
 Hmotnostní analyzátor byl tedy nastaven na pevnou hodnotu $\mz$
@@ -199,6 +200,60 @@ což svědčí o~nižší koncentraci vyšších iontů.
 	\caption{Určení ionizačního prahu argonových iontů \ce{Ar+} a~\ce{Ar^2+}.}
 	\label{fig:ionization}
 \end{figure}
+
+\subsection{Hmotnostní spektrum plazmatu}
+\label{plasma}
+Následně bylo zkoumáno složení plazmatu v~kapacitně vázaném výboji.
+Tlak i~průtok argonu byly stejné jako v~předchozích případech,
+tedy \SI{6}{\pascal} a~\SI{10}{\sccm}.
+Výboj byl buzen střídavým napětím o~frekvenci \SI{13.56}{\mega\hertz},
+dodávaný výkon činil \SI{20}{\watt}.
+Skrz okénko reaktoru bylo možno pozorovat, že výboj hoří a~plazma svítí.
+Ionizační komora byla při tomto měření vypnuta,
+byly tedy zaznamenávány pouze ionty z~plazmatu.
+
+Naměřené hmotnostní spektrum je na obrázku č.~\ref{fig:plasma}
+a~určené složky v~tabulce č.~\ref{tab:plasma}.
+
+\begin{figure}[htp]
+	\centering
+	\input{plots/plasma}
+	\caption{Hmotnostní spektrum iontů z~plazmatu.}
+	\label{fig:plasma}
+\end{figure}
+
+\begin{table}
+	\centering
+	\caption{Určené složky hmotnostního spektra plazmatu.}
+	\label{tab:plasma}
+	\begin{tabular}{ccc}
+		\toprule
+		$\mz\,[\si{\thomson}]$ & částice \\
+		\midrule
+		1 & \ce{H+} \\
+		17 & \ce{OH+} \\
+		18 & \ce{H2O+} \\
+		19 & \ce{H3O+} \\
+		28 & \ce{N2+} \\
+		29 & \ce{CH3N+} \\
+		32 & \ce{O2+} \\
+		\bottomrule
+	\end{tabular}
+	\qquad
+	\begin{tabular}{ccc}
+		\toprule
+		$\mz\,[\si{\thomson}]$ & částice \\
+		\midrule
+		36 & \ce{^{36}Ar+} \\
+		38 & \ce{^{38}Ar+} \\
+		40 & \ce{Ar+} \\
+		41 & \ce{ArH+} \\
+		44 & \ce{CO2+} \\
+		45 & \ce{CH3NO+} \\
+		80 & \ce{^{40}Ar2+} \\
+		\bottomrule
+	\end{tabular}
+\end{table}
 
 \subsection{Určení neznámé látky}
 \label{sec:unknown}
