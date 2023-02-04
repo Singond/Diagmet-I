@@ -261,13 +261,52 @@ a~určené složky v~tabulce č.~\ref{tab:plasma}.
 \end{table}
 
 \subsection{Energiové spektrum}
+\label{sec:energy}
+Pro nejvýraznější ionty určené předchozím měřením,
+tedy \ce{Ar+}, \ce{ArH+} a~\ce{N2+} byla naměřena energiová spektra.
+Hmotnostní filtr byl nastavován na~pevnou hodnotu $\mz$ zkoumaného iontu
+a~energiový analyzátor proměřoval energie v~rozsahu
+\SIrange{0}{30}{\electronvolt}.
+Podmínky v~reaktoru byly stejné jako v~předchozím případě,
+tlak tedy činil \SI{6}{\pascal}, ionizační komora zůstala vypnuta.
+Měření bylo poté opakováno pro tlak \SI{2.5}{\pascal}.
+
+Výsledky jsou na~obrázku č.~\ref{fig:energy}.
+U~jedenkrát ionizovaného argonu je při vyšším tlaku pozorován kromě
+celkového snížení intenzity výrazný posun rozdělovací funkce energií doleva.
+Dá se to vysvětlit zvýšením srážkové frekvence, které vede k~častější
+výměně energie mezi částicemi.
+Snižuje se tak pravděpodobnost, že konkrétní částice nabere větší
+množství energie, protože ji dříve ve~srážkách předá jiným.
+
+Iont \ce{ArH+} vzniká ve výbojích protonací argonu, tedy připojením
+protonu k~argonovému atomu:
+\begin{equation}
+	\label{eq:arh}
+	\ce{Ar} + \ce{H2+} \rightarrow \ce{ArH+} + \ce{H}.
+\end{equation}
+Za vyššího tlaku u~něj pozorujeme silný pokles intenzity.
+Tento jev lze přičíst zvýšené koncentraci neutrálního argonu.
+Atom \ce{Ar} a~iont \ce{ArH+} mají podobnou hmotnost a~při pružné srážce
+dochází ke~snadné výměně kinetické energie.
+Ionty proto při srážkách s~neutrálním argonem ztrácejí energii,
+což se projeví pozorovaným poklesem rozdělení.
+
+Rozdělovací funkce \ce{N2+} vykazuje nejmenší změnu,
+i~zde je však vidět pokles intenzity a~posun energií k~nižším hodnotám.
+
+Z~rozdělovací energie iontů lze také odhadnout napětí, kterým byly ionty
+urychleny, tedy velikost plazmového potenciálu.
+Nejvyšší zaznamenaná energie pro tlak \SI{2.5}{\pascal} je zhruba
+\SI{27}{\electronvolt}, plazmový potenciál je tedy kolem \SI{27}{\volt}.
+Při tlaku \SI{6}{\pascal} klesá tato hodnota asi na~\SI{25}{\pascal}.
 
 \begin{figure}[htp]
 	\centering
 	\input{plots/plasma-ar}%
 	\input{plots/plasma-arh}
 	\input{plots/plasma-nn}
-	\caption{caption}
+	\caption{Energiová spektra nejvíce zastoupených iontů.}
 	\label{fig:energy}
 \end{figure}
 
