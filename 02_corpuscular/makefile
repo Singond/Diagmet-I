@@ -14,7 +14,8 @@ endif
 all: protokol.pdf
 
 #epsfigs = $(patsubst %,unknown-%,1 2 3 4)
-epsfigs = residual argon ionization-1 ionization-2 plasma unknown-all
+epsfigs = residual argon ionization-1 ionization-2 plasma
+epsfigs += plasma-ar plasma-arh plasma-nn unknown-all
 figs = ${epsfigs:%=plots/%.tex} ${epsfigs:%=plots/%.eps}
 tex_resources = build/plots ${figs}
 
@@ -38,6 +39,9 @@ plots/ionization%: ionization.m ionization_export.m plots
 
 plots/plasma.%: plasma.m plasma_export.m plots
 	octave --norc plasma_export.m
+
+plots/plasma-%: energy.m energy_export.m plots
+	octave --norc energy_export.m
 
 $(patsubst %,plots/cyclopropylamine-nist.%,tex eps): nist_export.m plots
 	octave --norc nist_export.m
