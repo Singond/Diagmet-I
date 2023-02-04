@@ -1,12 +1,7 @@
 addpath octave;
 
-data = read_eqp_csv("data/IonizacniEnergieArgon.csv");
-ar1.E = data(:,1);
-ar1.in = data(:,2);
-
-data = read_eqp_csv("data/Ar++IonizacniEnergie.csv");
-ar2.E = data(:,1);
-ar2.in = data(:,2);
+ar1 = load_data("data/IonizacniEnergieArgon.csv", "energy");
+ar2 = load_data("data/Ar++IonizacniEnergie.csv", "energy");
 
 function x = threshold(x, fitrange)
 	m = fitrange(1) < x.E & x.E < fitrange(2);
