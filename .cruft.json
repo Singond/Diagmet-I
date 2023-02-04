@@ -1,5 +1,5 @@
 {
-  "template": "https://Singon@bitbucket.org/Singon/school-lab-template.git",
+  "template": "git@bitbucket.org:Singon/school-lab-template.git",
   "commit": "d4913be64d6bc3b38834769a5d97ccc3f4938f72",
   "checkout": null,
   "context": {
@@ -15,7 +15,7 @@
       "_copy_without_render": [
         "protokol.cls"
       ],
-      "_template": "https://Singon@bitbucket.org/Singon/school-lab-template.git"
+      "_template": "git@bitbucket.org:Singon/school-lab-template.git"
     }
   },
   "directory": null
