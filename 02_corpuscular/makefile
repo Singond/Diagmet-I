@@ -36,7 +36,7 @@ plots/argon%: argon.m argon_export.m plots
 plots/ionization%: ionization.m ionization_export.m plots
 	octave --norc ionization_export.m
 
-plots/plasma%: plasma.m plasma.m plots
+plots/plasma.%: plasma.m plasma_export.m plots
 	octave --norc plasma_export.m
 
 $(patsubst %,plots/cyclopropylamine-nist.%,tex eps): nist_export.m plots
