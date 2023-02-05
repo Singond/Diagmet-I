@@ -152,14 +152,14 @@ Je dobře patrna přítomnost vodní páry, dusíku a kyslíku.
 V~menším množství se vyskytuje též argon, oxid uhličitý
 a~neznámá částice s~nominální hmotností $\mz = \SI{56}{\thomson}$.
 
-\begin{figure}[htp]
+\begin{figure}[p]
 	\centering
 	\input{plots/residual}
 	\caption{Hmotnostní spektrum zbytkové atmosféry.}
 	\label{fig:residual}
 \end{figure}
 
-\begin{table}
+\begin{table}[hb]
 	\centering
 	\caption{Hlavní složky zbytkové atmosféry.}
 	\label{tab:residual}
@@ -203,14 +203,14 @@ kromě něj však lze pozorovat další částice.
 Na hodnotě $\mz = \SI{36}{\thomson}$ je pravděpodobně zachycen \ce{^{36}Ar+}\!,
 jeden ze vzácnějších stabilních izotopů argonu.
 
-\begin{figure}[htp]
+\begin{figure}[p]
 	\centering
 	\input{plots/argon}
 	\caption{Hmotnostní spektrum argonu.}
 	\label{fig:argon}
 \end{figure}
 
-\begin{table}
+\begin{table}[hb]
 	\centering
 	\caption{Složky naměřeného spektra argonu.}
 	\label{tab:argon}
@@ -361,7 +361,7 @@ Při tlaku \SI{6}{\pascal} klesá tato hodnota asi na~\SI{25}{\pascal}.
 	\input{plots/plasma-ar}%
 	\input{plots/plasma-arh}
 	\input{plots/plasma-nn}
-	\caption{Energiová spektra nejvíce zastoupených iontů.}
+	\caption{Energiová spektra nejvíce zastoupených iontů v~plazmatu.}
 	\label{fig:energy}
 \end{figure}
 
@@ -392,20 +392,16 @@ v~tabulce č.~\ref{tab:unknown}.
 \begin{figure}[htp]
 	\centering
 	\input{plots/unknown-all}
-	\caption{Hmotnostní spektrum neznámého plynu při různých energiích.}
-	\label{fig:unknown-all}
-\end{figure}
-
-\begin{figure}[htp]
-	\centering
 	\input{plots/cyclopropylamine-nist}
-	\caption{Hmotnostní spektrum cyklopropylaminu podle \cite{nist}.}
+	\caption{Hmotnostní spektrum neznámého plynu při různých energiích.
+		Hmotnostní spektrum cyklopropylaminu podle \cite{nist}.}
+	\label{fig:unknown-all}
 	\label{fig:cyclopropylamine-nist}
 \end{figure}
 
 \begin{table}
 	\centering
-	\caption{Určené částice.}
+	\caption{Částice určené ve~spektru neznámé látky.}
 	\label{tab:unknown}
 	\begin{tabular}{ccc}
 		\toprule
