@@ -11,6 +11,7 @@ function plotpeak(X, species, name)
 		set rmargin 2 \n\
 		set tmargin 2 \n\
 		set xlabel '$\\en\\,[\\si{\\electronvolt}]$' \n\
+		set ylabel 'intenzita $\\en\\,[\\si{\\arbu}]$' \n\
 		set key top left height 1 \n\
 		set title '\\ce{%s}' \n\
 		",
