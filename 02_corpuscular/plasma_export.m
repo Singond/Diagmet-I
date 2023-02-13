@@ -4,16 +4,10 @@ plasma;
 
 gp = gnuplotter();
 gp.load("../plotsettings.gp");
+gp.load("massspec.gp");
 gp.exec("\n\
-	set decimalsign '.' \n\
-	set lmargin 2 \n\
-	set rmargin 1 \n\
 	set xrange [0:85] \n\
-	set xlabel '$\\mz\\,[\\si{\\thomson}]$' \n\
-	set log y \n\
-	set format y '\\num[print-unity-mantissa=false]{%.0e}' \n\
 	set yrange [1e2:3e6] \n\
-	unset key \n\
 ");
 in = max(in, 1);
 gp.plot(mz, in, "w filledcurves above y1=0");

@@ -9,6 +9,7 @@ for k = 1:numel(X)
 	int = max(real(log10(x.in)), 1);
 	gp = gnuplotter;
 	gp.load("../plotsettings.gp");
+	gp.load("massspec.gp");
 	gp.plot(x.mz, int, "w l");
 	gp.exec("\n\
 		set yrange [3:6] \n\
@@ -19,16 +20,10 @@ endfor
 
 gp = gnuplotter();
 gp.load("../plotsettings.gp");
+gp.load("massspec.gp");
 gp.exec("\n\
-	set decimalsign '.' \n\
-	set lmargin 2 \n\
-	set rmargin 1 \n\
 	set xrange [10:60] \n\
-	set xlabel '$\\mz\\,[\\si{\\thomson}]$' \n\
-	set log y \n\
-	set format y '\\num[print-unity-mantissa=false]{%.0e}' \n\
 	set yrange [1000:1e6] \n\
-	set key top left height 1 width 1 \n\
 ");
 for k = numel(X):-1:1
 	x = X(k);
