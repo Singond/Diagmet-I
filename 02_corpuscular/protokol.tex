@@ -26,7 +26,7 @@
 	list-separator       = {; },
 	list-final-separator = \text{ a },
 	list-pair-separator  = \text{ a },
-	range-phrase         = \text{ až },
+	range-phrase         = \text{--},
 	range-units          = single,
 }
 \DeclareSIUnit\thomson{Th}
@@ -132,7 +132,7 @@ předčerpávanou rotační olejovou vývěvou, mezní tlak je \SI{5e-5}{\pascal
 Tlak v~reaktoru snímá kapacitron MKS Baratron a~kompaktní manometr
 Pfeiffer PKR~251.
 Plyny proudí do reaktoru otvory v~horní elektrodě,
-jejich množství je regulováno průtokoměry MF1 a MKS.
+jejich množství je regulováno průtokoměry MKS.
 
 \section{Experimenty}
 \label{sec:experimental}
@@ -168,7 +168,7 @@ a~neznámá částice s~nominální hmotností $\mz = \SI{56}{\thomson}$.
 		$\mz\,[\si{\thomson}]$ & částice \\
 		\midrule
 		14 & \ce{N+} \\
-		15 & \ce{NH+} \\
+		15 & \ce{NH+}, \ce{^{15}N+} \\
 		16 & \ce{O+} \\
 		17 & \ce{OH+} \\
 		18 & \ce{H2O+} \\
@@ -232,8 +232,9 @@ jeden ze vzácnějších stabilních izotopů argonu.
 V~této části byla pozorována závislost počtu částic s~určitým $\mz$
 zachycených hmotnostním filtrem na energii ionizačních elektronů.
 Hmotnostní analyzátor byl tedy nastaven na pevnou hodnotu $\mz$
-a~energie ionizačních elektronů byla měněna v~rozsahu
-\SIrange{6}{10}{\electronvolt}.
+a~energie ionizačních elektronů byla měněna v~potřebném rozsahu
+(\SIrange{5}{20}{\electronvolt} pro \ce{Ar+}
+a~\SIrange{5}{60}{\electronvolt} pro \ce{Ar^2+}).
 Podmínky v~komoře byly stejné jako v~předchozím případě,
 tedy argon o~tlaku \SI{6}{\pascal} při průtoku \SI{10}{\sccm}.
 
@@ -354,7 +355,7 @@ Z~rozdělovací energie iontů lze také odhadnout napětí, kterým byly ionty
 urychleny, tedy velikost plazmového potenciálu.
 Nejvyšší zaznamenaná energie pro tlak \SI{2.5}{\pascal} je zhruba
 \SI{27}{\electronvolt}, plazmový potenciál je tedy kolem \SI{27}{\volt}.
-Při tlaku \SI{6}{\pascal} klesá tato hodnota asi na~\SI{25}{\pascal}.
+Při tlaku \SI{6}{\pascal} klesá tato hodnota asi na~\SI{25}{\volt}.
 
 \begin{figure}[htp]
 	\centering
@@ -408,9 +409,9 @@ v~tabulce č.~\ref{tab:unknown}.
 		$\mz\,[\si{\thomson}]$ & částice \\
 		\midrule
 		18 & \ce{H2O+} \\
-		26 & \ce{CN+} \\
-		27 & \ce{CHN+} \\
-		28 & \ce{C2H4+} \\
+		26 & \ce{C2H2+}, \ce{CN+} \\
+		27 & \ce{C2H3+}, \ce{CHN+} \\
+		28 & \ce{C2H4+}, \ce{CH2N+} \\
 		29 & \ce{CH3N+} \\
 		30 & \ce{CH4N+} \\
 		32 & \ce{O2+} \\
@@ -422,8 +423,8 @@ v~tabulce č.~\ref{tab:unknown}.
 		$\mz\,[\si{\thomson}]$ & částice \\
 		\midrule
 		39 & \ce{C2HN+} \\
-		41 & \ce{C3H5+} \\
-		42 & \ce{C3H6+} \\
+		41 & \ce{C3H5+}, \ce{C2H3N+} \\
+		42 & \ce{C3H6+}, \ce{C2H4N+} \\
 		52 & \ce{C3H2N+} \\
 		54 & \ce{C3H4N+} \\
 		56 & \ce{C3H6N+} \\
