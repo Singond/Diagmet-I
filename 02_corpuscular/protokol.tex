@@ -16,6 +16,45 @@
 \usepackage{csvsimple}
 \usepackage{multirow}
 \usepackage{multicol}
+\usepackage{pgfplotstable}
+\pgfplotstableset{
+	header = false,
+	skip first n = 1,
+	every head row/.style = {
+		before row = \toprule,
+		after row = \midrule
+	},
+	every last row/.style = {
+		after row = \bottomrule
+	},
+	use comma,
+	set thousands separator = {},
+}
+\newcommand\massspectable[1]{\pgfplotstableset{
+	create on use/species/.style = {
+		create col/set list={#1}
+	},
+	columns={0, species, 2},
+	columns/0/.style = {
+		column name = $\mz\,[\si{\thomson}]$
+	},
+	columns/2/.style = {
+		column name = $\intensrel$,
+		column type = {S[
+			table-format = 3.2,
+			round-mode = figures,
+			round-precision = 2,
+			exponent-mode = fixed,
+			fixed-exponent = 0,
+		]},
+		multiply with = 100,
+		string type,
+	},
+	columns/species/.style = {
+		column name = částice,
+		string type
+	},
+}}
 
 % Jednotky
 \usepackage{siunitx}
@@ -75,6 +114,7 @@
 \newcommand\mz{m/z}
 \newcommand\en{E}
 \newcommand\intens{I}
+\newcommand\intensrel{\intens_\mathrm{r}}
 
 \title{Korpuskulární diagnostika}
 \author{Jan Slaný}
@@ -166,29 +206,25 @@ a~neznámá částice s~nominální hmotností $\mz = \SI{56}{\thomson}$.
 	\centering
 	\caption{Hlavní složky zbytkové atmosféry.}
 	\label{tab:residual}
-	\begin{tabular}{ccc}
-		\toprule
-		$\mz\,[\si{\thomson}]$ & částice \\
-		\midrule
-		14 & \ce{N+} \\
-		15 & \ce{NH+}, \ce{^{15}N+} \\
-		16 & \ce{O+} \\
-		17 & \ce{OH+} \\
-		18 & \ce{H2O+} \\
-		\bottomrule
-	\end{tabular}
+	\massspectable{
+		\ce{N+},
+		{\ce{NH+}, \ce{^{15}N+}},
+		\ce{O+},
+		\ce{OH+},
+		\ce{H2O+},
+		\ce{N2+},
+		\ce{O2+},
+		\ce{Ar+},
+		\ce{CO2+},
+		\ce{C3H6N}
+	}
+	\pgfplotstabletypeset[
+		select equal part entry of={0}{2}
+	]{results/residual.csv}
 	\qquad
-	\begin{tabular}{ccc}
-		\toprule
-		$\mz\,[\si{\thomson}]$ & částice \\
-		\midrule
-		28 & \ce{N2+} \\
-		32 & \ce{O2+} \\
-		40 & \ce{Ar+} \\
-		44 & \ce{CO2+} \\
-		56 & \ce{C3H6N} \\
-		\bottomrule
-	\end{tabular}
+	\pgfplotstabletypeset[
+		select equal part entry of={1}{2}
+	]{results/residual.csv}
 \end{table}
 
 \subsection{Hmotnostní spektrum argonu}
@@ -217,17 +253,14 @@ jeden ze vzácnějších stabilních izotopů argonu.
 	\centering
 	\caption{Složky naměřeného spektra argonu.}
 	\label{tab:argon}
-	\begin{tabular}{ccc}
-		\toprule
-		$\mz\,[\si{\thomson}]$ & částice \\
-		\midrule
-		20 & \ce{^{40}Ar^2+} \\
-		28 & \ce{N2+} \\
-		32 & \ce{O2+} \\
-		36 & \ce{^{36}Ar+} \\
-		40 & \ce{^{40}Ar+} \\
-		\bottomrule
-	\end{tabular}
+	\massspectable{
+		\ce{^{40}Ar^2+},
+		\ce{N2+},
+		\ce{O2+},
+		\ce{^{36}Ar+},
+		\ce{^{40}Ar+}
+	}
+	\pgfplotstabletypeset{results/argon.csv}
 \end{table}
 
 \subsection{Ionizační práh argonu}
@@ -290,33 +323,29 @@ a~určené složky v~tabulce č.~\ref{tab:plasma}.
 	\centering
 	\caption{Určené složky hmotnostního spektra plazmatu.}
 	\label{tab:plasma}
-	\begin{tabular}{ccc}
-		\toprule
-		$\mz\,[\si{\thomson}]$ & částice \\
-		\midrule
-		1 & \ce{H+} \\
-		17 & \ce{OH+} \\
-		18 & \ce{H2O+} \\
-		19 & \ce{H3O+} \\
-		28 & \ce{N2+} \\
-		29 & \ce{CH3N+} \\
-		32 & \ce{O2+} \\
-		\bottomrule
-	\end{tabular}
+	\massspectable{
+		\ce{H+},
+		\ce{OH+},
+		\ce{H2O+},
+		\ce{H3O+},
+		\ce{N2+},
+		\ce{CH3N+},
+		\ce{O2+},
+		\ce{^{36}Ar+},
+		\ce{^{38}Ar+},
+		\ce{Ar+},
+		\ce{ArH+},
+		\ce{CO2+},
+		\ce{CH3NO+},
+		\ce{^{40}Ar2+},
+	}
+	\pgfplotstabletypeset[
+		select equal part entry of={0}{2}
+	]{results/plasma.csv}
 	\qquad
-	\begin{tabular}{ccc}
-		\toprule
-		$\mz\,[\si{\thomson}]$ & částice \\
-		\midrule
-		36 & \ce{^{36}Ar+} \\
-		38 & \ce{^{38}Ar+} \\
-		40 & \ce{Ar+} \\
-		41 & \ce{ArH+} \\
-		44 & \ce{CO2+} \\
-		45 & \ce{CH3NO+} \\
-		80 & \ce{^{40}Ar2+} \\
-		\bottomrule
-	\end{tabular}
+	\pgfplotstabletypeset[
+		select equal part entry of={1}{2}
+	]{results/plasma.csv}
 \end{table}
 
 \subsection{Energiové spektrum}
@@ -407,33 +436,29 @@ v~tabulce č.~\ref{tab:unknown}.
 	\centering
 	\caption{Částice určené ve~spektru neznámé látky.}
 	\label{tab:unknown}
-	\begin{tabular}{ccc}
-		\toprule
-		$\mz\,[\si{\thomson}]$ & částice \\
-		\midrule
-		18 & \ce{H2O+} \\
-		26 & \ce{C2H2+}, \ce{CN+} \\
-		27 & \ce{C2H3+}, \ce{CHN+} \\
-		28 & \ce{C2H4+}, \ce{CH2N+} \\
-		29 & \ce{CH3N+} \\
-		30 & \ce{CH4N+} \\
-		32 & \ce{O2+} \\
-		\bottomrule
-	\end{tabular}
+	\massspectable{
+		\ce{H2O+},
+		{\ce{C2H2+}, \ce{CN+}},
+		{\ce{C2H3+}, \ce{CHN+}},
+		{\ce{C2H4+}, \ce{CH2N+}},
+		\ce{CH3N+},
+		\ce{CH4N+},
+		\ce{O2+},
+		\ce{C2HN+},
+		{\ce{C3H5+}, \ce{C2H3N+}},
+		{\ce{C3H6+}, \ce{C2H4N+}},
+		\ce{C3H2N+},
+		\ce{C3H4N+},
+		\ce{C3H6N+},
+		\ce{C3H7N+},
+	}
+	\pgfplotstabletypeset[
+		select equal part entry of={0}{2}
+	]{results/unknown.csv}
 	\qquad
-	\begin{tabular}{ccc}
-		\toprule
-		$\mz\,[\si{\thomson}]$ & částice \\
-		\midrule
-		39 & \ce{C2HN+} \\
-		41 & \ce{C3H5+}, \ce{C2H3N+} \\
-		42 & \ce{C3H6+}, \ce{C2H4N+} \\
-		52 & \ce{C3H2N+} \\
-		54 & \ce{C3H4N+} \\
-		56 & \ce{C3H6N+} \\
-		57 & \ce{C3H7N+} \\
-		\bottomrule
-	\end{tabular}
+	\pgfplotstabletypeset[
+		select equal part entry of={1}{2}
+	]{results/unknown.csv}
 \end{table}
 
 \section{Závěr}
