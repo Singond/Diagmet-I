@@ -11,7 +11,7 @@ gp.exec("\n\
 	set tmargin 2 \n\
 	set xrange [15:20] \n\
 	set xlabel '$\\en\\,[\\si{\\electronvolt}]$' \n\
-	set ylabel 'intenzita $\\en\\,[\\si{\\arbu}]$' offset 0.5,0 \n\
+	set ylabel 'intenzita $\\intens\\,[\\si{\\arbu}]$' offset 0.5,0 \n\
 	set key top left \n\
 	set title '\\ce{Ar+}' \n\
 ");
@@ -33,7 +33,7 @@ gp.exec("\n\
 	set tmargin 2 \n\
 	set xrange [40:60] \n\
 	set xlabel '$\\en\\,[\\si{\\electronvolt}]$' \n\
-	set ylabel 'intenzita $\\en\\,[\\si{\\arbu}]$' offset 0.5,0 \n\
+	set ylabel 'intenzita $\\intens\\,[\\si{\\arbu}]$' offset 0.5,0 \n\
 	set key top left \n\
 	set title '\\ce{Ar^2+}' \n\
 ");
