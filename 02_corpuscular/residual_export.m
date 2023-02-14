@@ -16,9 +16,12 @@ ypos = s.inmax;
 ypos(14) *= 1.5;
 xpos(16) -= 0.2;
 xpos(17) -= 0.2;
-for p = [14:18 28 32 40 44 56];
+pks = [14:18 28 32 40 44 56];
+for p = pks
 	gp.exec(sprintf(
 		"set label '%d' at %f,%f center offset 0,1",
 		p, xpos(p), ypos(p)));
 endfor
 gp.export("plots/residual.tex", "epslatex", "size 16cm,8cm");
+
+export_mass_spectrum(s, "results/residual.csv", pks);

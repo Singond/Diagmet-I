@@ -29,16 +29,22 @@ plots:
 plots/unknown-%: identification.m identification_export.m massspec.gp plots
 	octave --norc identification_export.m
 
-plots/residual%: residual.m residual_export.m massspec.gp plots
+results/unknown.csv: identification.m identification_export.m massspec.gp plots
+	octave --norc identification_export.m
+
+plots/residual.tex plots/residual.eps results/residual.csv: \
+residual.m residual_export.m massspec.gp plots
 	octave --norc residual_export.m
 
-plots/argon%: argon.m argon_export.m massspec.gp plots
+plots/argon.tex plots/argon.eps results/argon.csv: \
+argon.m argon_export.m massspec.gp plots
 	octave --norc argon_export.m
 
 plots/ionization%: ionization.m ionization_export.m plots
 	octave --norc ionization_export.m
 
-plots/plasma.%: plasma.m plasma_export.m massspec.gp plots
+plots/plasma.tex plots/plasma.eps results/plasma.csv: \
+plasma.m plasma_export.m massspec.gp plots
 	octave --norc plasma_export.m
 
 plots/plasma-%: energy.m energy_export.m plots

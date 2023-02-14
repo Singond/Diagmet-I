@@ -38,9 +38,12 @@ xpos(29) += 0.2;
 xpos(57) += 0.2;
 ypos = pkintmax;
 ypos(42) *= 1.5;
-for p = [18 26 27 28 29 30 32 39 41 42 52 54 56 57];
+pks = [18 26 27 28 29 30 32 39 41 42 52 54 56 57];
+for p = pks
 	gp.exec(sprintf(
 		"set label '%d' at %f,%f center offset 0,1",
 		p, xpos(p), ypos(p)));
 endfor
 gp.export(sprintf("plots/unknown-all.tex", k), "epslatex", "size 16cm,8cm");
+
+export_mass_spectrum(X(4).s, "results/unknown.csv", pks);

@@ -22,9 +22,12 @@ xpos(41) += 0.5;
 ypos(44) *= 1.2;
 xpos(45) += 0.5;
 ypos(45) /= 1.2;
-for p = [1 17:19 28 29 32 36 38 40 41 44 45 80];
+pks = [1 17:19 28 29 32 36 38 40 41 44 45 80];
+for p = pks
 	gp.exec(sprintf(
 		"set label '%d' at %f,%f center offset 0,1",
 		p, xpos(p), ypos(p)));
 endfor
 gp.export("plots/plasma.tex", "epslatex", "size 16cm,8cm");
+
+export_mass_spectrum(s, "results/plasma.csv", pks);

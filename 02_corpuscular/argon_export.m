@@ -16,9 +16,12 @@ ypos = s.inmax;
 ##ypos(14) *= 1.5;
 ##xpos(16) -= 0.2;
 ##xpos(17) -= 0.2;
-for p = [20 28 32 36 40];
+pks = [20 28 32 36 40];
+for p = pks
 	gp.exec(sprintf(
 		"set label '%d' at %f,%f center offset 0,1",
 		p, xpos(p), ypos(p)));
 endfor
 gp.export("plots/argon.tex", "epslatex", "size 16cm,8cm");
+
+export_mass_spectrum(s, "results/argon.csv", pks);
