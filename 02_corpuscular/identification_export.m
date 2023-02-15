@@ -46,4 +46,4 @@ for p = pks
 endfor
 gp.export(sprintf("plots/unknown-all.tex", k), "epslatex", "size 16cm,8cm");
 
-export_mass_spectrum(X(4).s, "results/unknown.csv", pks);
+export_mass_spectrum([X.s], "results/unknown.csv", pks);
