@@ -115,6 +115,7 @@
 \newcommand\en{E}
 \newcommand\intens{I}
 \newcommand\intensrel{\intens_\mathrm{r}}
+\newcommand\abundance{A}
 
 \title{Korpuskulární diagnostika}
 \author{Jan Slaný}
@@ -249,7 +250,7 @@ a v~tabulce č.~\ref{tab:argon}.
 Podle očekávání má nejvýraznější maximum argon o~$\mz = \SI{40}{\thomson}$,
 kromě něj však lze pozorovat další částice.
 Na hodnotě $\mz = \SI{36}{\thomson}$ je pravděpodobně zachycen \ce{^{36}Ar+}\!.
-Relativní zastoupení tohoto izotopu na~Zemi je přibližně \SI{0.3}\percent,
+Relativní zastoupení tohoto izotopu na~Zemi je přibližně \SI{0.33}\percent,
 což dobře odpovídá naměřené relativní intenzitě čáry
 $\intensrel = \SI{0.42}\percent$.
 
@@ -322,6 +323,10 @@ byly tedy zaznamenávány pouze ionty z~plazmatu.
 
 Naměřené hmotnostní spektrum je na obrázku č.~\ref{fig:plasma}
 a~určené složky v~tabulce č.~\ref{tab:plasma}.
+Jsou patrné tři izotopy argonu: \ce{^{36}Ar+}, \ce{^{38}Ar+} a~\ce{^{40}Ar+}.
+Relativní intenzita příslušných maxim zhruba odpovídá relativnímu
+zastoupení jednotlivých izotopů na~Zemi,
+jak ukazuje tabulka č.~\ref{tab:plasma-isotopes}.
 
 \begin{figure}[htp]
 	\centering
@@ -330,7 +335,7 @@ a~určené složky v~tabulce č.~\ref{tab:plasma}.
 	\label{fig:plasma}
 \end{figure}
 
-\begin{table}
+\begin{table}[hb]
 	\centering
 	\caption{Určené složky hmotnostního spektra plazmatu.}
 	\label{tab:plasma}
@@ -357,6 +362,24 @@ a~určené složky v~tabulce č.~\ref{tab:plasma}.
 	\pgfplotstabletypeset[
 		select equal part entry of={1}{2}
 	]{results/plasma.csv}
+\end{table}
+
+\begin{table}
+	\centering
+	\caption{Porovnání podílu izotopů argonu v~plazmatu
+		s~jejich relativním zastoupením $\abundance$ na~Zemi.
+		Relativní zastoupení je podle \parencite{nist-ar}.}
+	\label{tab:plasma-isotopes}
+	\begin{tabular}{l S[table-format=3.3] S[table-format=2.4]}
+		\toprule
+		izotop & ${\intensrel\,[\si\percent]}$ &
+			${\abundance\,[\si\percent]}$ \\
+		\midrule
+		\ce{^{36}Ar+} & 0.39  &  0.3336 \\
+		\ce{^{38}Ar+} & 0.080 &  0.0629 \\
+		\ce{^{40}Ar+} & 100   & 99.6035 \\
+		\bottomrule
+	\end{tabular}
 \end{table}
 
 \subsection{Energiové spektrum}
