@@ -469,7 +469,10 @@ v~tabulce č.~\ref{tab:unknown}.
 
 \begin{table}
 	\centering
-	\caption{Částice určené ve~spektru neznámé látky.}
+	\caption{Částice určené ve~spektru neznámé látky pro různé hodnoty
+		energie ionizačních elektronů.
+		Relativní intenzity $\intensrel$ jsou vztaženy k~maximu každého
+		sloupce zvlášť.}
 	\label{tab:unknown}
 	\massspectable{
 		\ce{H2O+},
@@ -487,13 +490,60 @@ v~tabulce č.~\ref{tab:unknown}.
 		\ce{C3H6N+},
 		\ce{C3H7N+},
 	}
+	\shorthandoff{-}
 	\pgfplotstabletypeset[
-		select equal part entry of={0}{2}
+		every head row/.style = {
+			output empty row,
+			before row = {
+				\toprule
+				$\mz\,[\si\thomson]$ &
+				částice &
+				\multicolumn{4}{c}{$\intensrel\,[\si\percent]$} \\
+				\cmidrule(lr){3-6}
+				&& \SI{15}\electronvolt & \SI{25}\electronvolt
+				& \SI{40}\electronvolt & \SI{70}\electronvolt \\
+				\midrule
+			}
+		},
+		columns = {0, species, 2, 4, 6, 8},
+		columns/4/.style = {
+			column name = ${\intensrel\,[\si\percent]}$,
+			column type = {S[
+				table-format = 3.3,
+				round-mode = figures,
+				round-precision = 2,
+				exponent-mode = fixed,
+				fixed-exponent = 0,
+			]},
+			multiply with = 100,
+			string type,
+		},
+		columns/6/.style = {
+			column name = ${\intensrel\,[\si\percent]}$,
+			column type = {S[
+				table-format = 3.3,
+				round-mode = figures,
+				round-precision = 2,
+				exponent-mode = fixed,
+				fixed-exponent = 0,
+			]},
+			multiply with = 100,
+			string type,
+		},
+		columns/8/.style = {
+			column name = ${\intensrel\,[\si\percent]}$,
+			column type = {S[
+				table-format = 3.3,
+				round-mode = figures,
+				round-precision = 2,
+				exponent-mode = fixed,
+				fixed-exponent = 0,
+			]},
+			multiply with = 100,
+			string type,
+		},
 	]{results/unknown.csv}
-	\qquad
-	\pgfplotstabletypeset[
-		select equal part entry of={1}{2}
-	]{results/unknown.csv}
+	\shorthandoff{-}
 \end{table}
 
 \section{Závěr}
