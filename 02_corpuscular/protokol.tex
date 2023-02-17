@@ -370,16 +370,21 @@ jak ukazuje tabulka č.~\ref{tab:plasma-isotopes}.
 	\centering
 	\caption{Porovnání podílu izotopů argonu v~plazmatu
 		s~jejich relativním zastoupením $\abundance$ na~Zemi.
-		Relativní zastoupení je podle \parencite{nist-ar}.}
+		Relativní zastoupení je podle \parencite{nist-ar},
+		zde je pro snazší srovnání normováno
+		na $\SI{100}\percent$ u~izotopu \ce{^{40}Ar}.}
 	\label{tab:plasma-isotopes}
-	\begin{tabular}{l S[table-format=3.3] S[table-format=2.4]}
+	\begin{tabular}{l S[table-format=3.3] S[table-format=3.4]}
 		\toprule
 		izotop & ${\intensrel\,[\si\percent]}$ &
 			${\abundance\,[\si\percent]}$ \\
 		\midrule
-		\ce{^{36}Ar+} & 0.39  &  0.3336 \\
-		\ce{^{38}Ar+} & 0.080 &  0.0629 \\
-		\ce{^{40}Ar+} & 100   & 99.6035 \\
+% 		\ce{^{36}Ar+} & 0.39  &  0.3336 & 0.3349 \\
+% 		\ce{^{38}Ar+} & 0.080 &  0.0629 & 0.0632 \\
+% 		\ce{^{40}Ar+} & 100   & 99.6035 & 100    \\
+		\ce{^{36}Ar+} & 0.39  & 0.3349 \\
+		\ce{^{38}Ar+} & 0.080 & 0.0632 \\
+		\ce{^{40}Ar+} & 100   & 100    \\
 		\bottomrule
 	\end{tabular}
 \end{table}
@@ -583,7 +588,7 @@ Z~energiového spektra nejvýraznějších složek byl také odhadnut
 plazmový potenciál, který činil asi \SIrange{25}{27}\electronvolt.
 Poměr koncentrací izotopů \ce{^{36}Ar+} a~\ce{^{40}Ar+} v~experimentech
 vycházel $100:\num{0.42}$ a~$100:\num{0.39}$, což přibližně odpovídá jejich
-relativním zastoupením na~Zemi ($\num{99.6}:\num{0.33}$).
+relativním zastoupením na~Zemi ($\num{100}:\num{0.33}$).
 
 Nakonec byla analyzována neznámá organická látka.
 Podle jejího hmotnostního spektra bylo usouzeno, že se jedná
